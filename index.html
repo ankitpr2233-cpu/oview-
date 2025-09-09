@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Saathi Movies Downloader</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <!-- Popunder Ads -->
+    <script type='text/javascript' src='//pl27574134.revenuecpmgate.com/49/ca/50/49ca50c3e37aa6c96d4080f83aa6536d.js'></script>
+</head>
+<body>
+    <!-- Admin Panel Button -->
+    <div class="admin-panel-trigger">
+        <button id="adminBtn" class="admin-btn">Admin</button>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="adminModal" class="admin-modal hidden">
+        <div class="admin-modal-content">
+            <span class="admin-close">&times;</span>
+            
+            <!-- Login Form -->
+            <div id="adminLogin" class="admin-login">
+                <h2>Admin Login</h2>
+                <input type="email" id="adminEmail" placeholder="Enter Gmail" class="admin-input">
+                <input type="password" id="adminPassword" placeholder="Enter Password" class="admin-input">
+                <button id="loginBtn" class="admin-login-btn">Login</button>
+                <div id="loginError" class="admin-error hidden">Incorrect email or password!</div>
+            </div>
+
+            <!-- Admin Dashboard -->
+            <div id="adminDashboard" class="admin-dashboard hidden">
+                <h2>Movie Link Manager</h2>
+                
+                <!-- Add New Movie -->
+                <div class="admin-section">
+                    <h3>Add New Movie</h3>
+                    <input type="text" id="movieTitle" placeholder="Movie Title" class="admin-input">
+                    <input type="url" id="movieUrl" placeholder="Movie Download URL" class="admin-input">
+                    <button id="addMovieBtn" class="admin-btn">Add Movie</button>
+                </div>
+
+                <!-- Movies List -->
+                <div class="admin-section">
+                    <h3>Managed Movies</h3>
+                    <div id="moviesList" class="movies-list">
+                        <!-- Movies will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Ad 1 - Top of page -->
+    <div class="banner-ad-container">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+    </div>
+
+    <div class="container">
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Smart Saathi</h1>
+                <p class="hero-subtitle">Your Ultimate Movie Companion</p>
+                <p class="hero-description">Discover the latest movies, reviews, and exclusive content from your favorite movie vlogger.</p>
+                
+                <button id="startBtn" class="cta-button">Click Here to Start</button>
+                
+                <div id="countdownSection" class="countdown-section hidden">
+                    <div class="countdown-timer">
+                        <span id="countdown">8</span>
+                    </div>
+                    <p class="countdown-text">Scroll down and click here to download your movie</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="content-section">
+            <div class="fitness-content">
+                <h2>Latest Movie Reviews & Downloads</h2>
+                
+                <!-- Native Banner Ad -->
+                <div class="native-ad-container">
+                    <script async="async" data-cfasync="false" src="//pl27574075.revenuecpmgate.com/10d5b3219ddbd970501fb31177315209/invoke.js"></script>
+                    <div id="container-10d5b3219ddbd970501fb31177315209"></div>
+                </div>
+                
+                <!-- Movie Vlog Images Section -->
+                <div class="blog-images-section">
+                    <div class="blog-image-card">
+                        <img src="https://images.unsplash.com/photo-1489599735188-900b2a1b0005?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Movie Theater" class="fitness-image">
+                        <div class="image-overlay">
+                            <h3>Latest Movies</h3>
+                            <p>Watch the newest blockbusters</p>
+                        </div>
+                    </div>
+                    <!-- Banner Ad on Image -->
+                    <div class="banner-ad-container">
+                        <script type="text/javascript">
+                            atOptions = {
+                                'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                                'format' : 'iframe',
+                                'height' : 250,
+                                'width' : 300,
+                                'params' : {}
+                            };
+                        </script>
+                        <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+                    </div>
+                    <div class="blog-image-card">
+                        <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Movie Reviews" class="fitness-image">
+                        <div class="image-overlay">
+                            <h3>Movie Reviews</h3>
+                            <p>Honest reviews and ratings</p>
+                        </div>
+                    </div>
+                    <!-- Banner Ad on Image -->
+                    <div class="banner-ad-container">
+                        <script type="text/javascript">
+                            atOptions = {
+                                'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                                'format' : 'iframe',
+                                'height' : 250,
+                                'width' : 300,
+                                'params' : {}
+                            };
+                        </script>
+                        <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+                    </div>
+                    <div class="blog-image-card">
+                        <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Movie Downloads" class="fitness-image">
+                        <div class="image-overlay">
+                            <h3>HD Downloads</h3>
+                            <p>High quality movie downloads</p>
+                        </div>
+                    </div>
+                    <!-- Banner Ad on Image -->
+                    <div class="banner-ad-container">
+                        <script type="text/javascript">
+                            atOptions = {
+                                'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                                'format' : 'iframe',
+                                'height' : 250,
+                                'width' : 300,
+                                'params' : {}
+                            };
+                        </script>
+                        <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+                    </div>
+                </div>
+
+                <!-- Native Banner Ad -->
+                <div class="native-ad-container">
+                    <script async="async" data-cfasync="false" src="//pl27574075.revenuecpmgate.com/10d5b3219ddbd970501fb31177315209/invoke.js"></script>
+                    <div id="container-10d5b3219ddbd970501fb31177315209"></div>
+                </div>
+
+                <!-- Banner Ad 2 - Between content sections -->
+                <div class="banner-ad-container">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '373548556c6676be2b03446c4241ff7f',
+                            'format' : 'iframe',
+                            'height' : 90,
+                            'width' : 728,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//www.highperformanceformat.com/373548556c6676be2b03446c4241ff7f/invoke.js"></script>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Premium Movies</h3>
+                        <p>Access to exclusive movie content and early releases from top studios.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Movie Reviews</h3>
+                        <p>In-depth movie reviews and ratings to help you choose what to watch.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Download Tracking</h3>
+                        <p>Track your downloads and manage your movie collection easily.</p>
+                    </div>
+                </div>
+                
+                <!-- Native Banner Ad -->
+                <div class="native-ad-container">
+                    <script async="async" data-cfasync="false" src="//pl27574075.revenuecpmgate.com/10d5b3219ddbd970501fb31177315209/invoke.js"></script>
+                    <div id="container-10d5b3219ddbd970501fb31177315209"></div>
+                </div>
+                
+                <!-- Banner Ad 3 - Before blog section -->
+                <div class="banner-ad-container">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+                </div>
+
+                <!-- Blog Articles Section -->
+                <div class="blog-articles-section">
+                    <h2>Latest Movie Blog Articles</h2>
+                    
+                    <!-- Native Banner Ad -->
+                    <div class="native-ad-container">
+                        <script async="async" data-cfasync="false" src="//pl27574075.revenuecpmgate.com/10d5b3219ddbd970501fb31177315209/invoke.js"></script>
+                        <div id="container-10d5b3219ddbd970501fb31177315209"></div>
+                    </div>
+                    <div class="articles-grid">
+                        <article class="blog-article">
+                            <div class="article-image">
+                                <img src="https://images.unsplash.com/photo-1489599735188-900b2a1b0005?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Top 10 Movies 2024">
+                            </div>
+                            <div class="article-content">
+                                <h3>Top 10 Must-Watch Movies of 2024</h3>
+                                <p class="article-meta">By Smart Saathi • 2 days ago</p>
+                                <p class="article-excerpt">Discover the most anticipated movies of 2024 that you absolutely cannot miss. From action-packed blockbusters to heartwarming dramas...</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </article>
+                        <!-- Banner Ad on Article Image -->
+                        <div class="banner-ad-container">
+                            <script type="text/javascript">
+                                atOptions = {
+                                    'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                                    'format' : 'iframe',
+                                    'height' : 250,
+                                    'width' : 300,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+                        </div>
+
+                        <!-- Native Banner Ad Between Articles -->
+                        <div class="native-ad-container">
+                            <script async="async" data-cfasync="false" src="//pl27574075.revenuecpmgate.com/10d5b3219ddbd970501fb31177315209/invoke.js"></script>
+                            <div id="container-10d5b3219ddbd970501fb31177315209"></div>
+                        </div>
+
+                        <article class="blog-article">
+                            <div class="article-image">
+                                <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Movie Review Guide">
+                            </div>
+                            <div class="article-content">
+                                <h3>How to Write Perfect Movie Reviews</h3>
+                                <p class="article-meta">By Smart Saathi • 5 days ago</p>
+                                <p class="article-excerpt">Learn the art of movie criticism with our comprehensive guide. Tips and tricks from professional reviewers to help you analyze films...</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </article>
+                        <!-- Banner Ad on Article Image -->
+                        <div class="banner-ad-container">
+                            <script type="text/javascript">
+                                atOptions = {
+                                    'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                                    'format' : 'iframe',
+                                    'height' : 250,
+                                    'width' : 300,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+                        </div>
+
+                        <!-- Native Banner Ad Between Articles -->
+                        <div class="native-ad-container">
+                            <script async="async" data-cfasync="false" src="//pl27574075.revenuecpmgate.com/10d5b3219ddbd970501fb31177315209/invoke.js"></script>
+                            <div id="container-10d5b3219ddbd970501fb31177315209"></div>
+                        </div>
+
+                        <article class="blog-article">
+                            <div class="article-image">
+                                <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Streaming vs Cinema">
+                            </div>
+                            <div class="article-content">
+                                <h3>Streaming vs Cinema: The Ultimate Debate</h3>
+                                <p class="article-meta">By Smart Saathi • 1 week ago</p>
+                                <p class="article-excerpt">Exploring the pros and cons of watching movies at home versus the traditional cinema experience. Which one offers better value...</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </article>
+                        <!-- Banner Ad on Article Image -->
+                        <div class="banner-ad-container">
+                            <script type="text/javascript">
+                                atOptions = {
+                                    'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                                    'format' : 'iframe',
+                                    'height' : 250,
+                                    'width' : 300,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+                        </div>
+
+                        <!-- Native Banner Ad Between Articles -->
+                        <div class="native-ad-container">
+                            <script async="async" data-cfasync="false" src="//pl27574075.revenuecpmgate.com/10d5b3219ddbd970501fb31177315209/invoke.js"></script>
+                            <div id="container-10d5b3219ddbd970501fb31177315209"></div>
+                        </div>
+
+                        <article class="blog-article">
+                            <div class="article-image">
+                                <img src="https://images.unsplash.com/photo-1489599735188-900b2a1b0005?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Behind the Scenes">
+                            </div>
+                            <div class="article-content">
+                                <h3>Behind the Scenes: Movie Making Secrets</h3>
+                                <p class="article-meta">By Smart Saathi • 2 weeks ago</p>
+                                <p class="article-excerpt">Go behind the camera and discover the fascinating world of movie production. From pre-production planning to post-production magic...</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </article>
+                        <!-- Banner Ad on Article Image -->
+                        <div class="banner-ad-container">
+                            <script type="text/javascript">
+                                atOptions = {
+                                    'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                                    'format' : 'iframe',
+                                    'height' : 250,
+                                    'width' : 300,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+                        </div>
+
+                        <article class="blog-article">
+                            <div class="article-image">
+                                <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Movie Genres Guide">
+                            </div>
+                            <div class="article-content">
+                                <h3>Complete Guide to Movie Genres</h3>
+                                <p class="article-meta">By Smart Saathi • 3 weeks ago</p>
+                                <p class="article-excerpt">Understanding different movie genres and what makes each one unique. From horror to romance, action to documentary...</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </article>
+                        <!-- Banner Ad on Article Image -->
+                        <div class="banner-ad-container">
+                            <script type="text/javascript">
+                                atOptions = {
+                                    'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                                    'format' : 'iframe',
+                                    'height' : 250,
+                                    'width' : 300,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+                        </div>
+
+                        <article class="blog-article">
+                            <div class="article-image">
+                                <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Movie Download Tips">
+                            </div>
+                            <div class="article-content">
+                                <h3>Safe Movie Downloading: Best Practices</h3>
+                                <p class="article-meta">By Smart Saathi • 1 month ago</p>
+                                <p class="article-excerpt">Essential tips for downloading movies safely and legally. Protect your device while enjoying your favorite films...</p>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </article>
+                        <!-- Banner Ad on Article Image -->
+                        <div class="banner-ad-container">
+                            <script type="text/javascript">
+                                atOptions = {
+                                    'key' : 'ba942120b959a8dc54b8a09ff5a2bc6d',
+                                    'format' : 'iframe',
+                                    'height' : 250,
+                                    'width' : 300,
+                                    'params' : {}
+                                };
+                            </script>
+                            <script type="text/javascript" src="//www.highperformanceformat.com/ba942120b959a8dc54b8a09ff5a2bc6d/invoke.js"></script>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Native Banner Ad -->
+                <div class="native-ad-container">
+                    <script async="async" data-cfasync="false" src="//pl27574075.revenuecpmgate.com/10d5b3219ddbd970501fb31177315209/invoke.js"></script>
+                    <div id="container-10d5b3219ddbd970501fb31177315209"></div>
+                </div>
+
+                <!-- Banner Ad 4 - Before download section -->
+                <div class="banner-ad-container">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '373548556c6676be2b03446c4241ff7f',
+                            'format' : 'iframe',
+                            'height' : 90,
+                            'width' : 728,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//www.highperformanceformat.com/373548556c6676be2b03446c4241ff7f/invoke.js"></script>
+                </div>
+
+                <div class="download-section">
+                    <button id="downloadBtn" class="download-button hidden">Click Here</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
